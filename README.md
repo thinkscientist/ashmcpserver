@@ -26,7 +26,7 @@ This MCP server provides three main tools:
 
 1. **Clone this repository:**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/thinkscientist/ashmcpserver.git
    cd ashmcpserver
    ```
 
