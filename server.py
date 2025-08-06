@@ -7,17 +7,26 @@ mcp = FastMCP("Ash")
 
 @mcp.tool
 def add(a: int, b: int) -> int:
-    """Add two numbers"""
+    """
+    Perform a simple addition.
+    
+    Args:
+        a: The first number to add
+        b: The second number to add
+    
+    Returns:
+        The sum of the two numbers
+    """
     return a + b
 
 @mcp.tool
-def search_wikipedia(query: str, sentences: int = 2) -> str:
+def search_wikipedia(query: str, sentences: int = 5) -> str:
     """
     Search Wikipedia for a query and return a summary.
     
     Args:
         query: The search term to look up on Wikipedia
-        sentences: Number of sentences to return in the summary (default: 2)
+        sentences: Number of sentences to return in the summary (default: 5)
     
     Returns:
         A summary of the Wikipedia article
@@ -33,7 +42,7 @@ def search_wikipedia(query: str, sentences: int = 2) -> str:
     except wikipedia.exceptions.PageError:
         # If no page found, try searching for similar terms
         try:
-            search_results = wikipedia.search(query, results=5)
+            search_results = wikipedia.search(query, results=10)
             if search_results:
                 return f"No exact match found for '{query}'. Similar articles:\n" + "\n".join(f"- {result}" for result in search_results)
             else:

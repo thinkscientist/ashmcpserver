@@ -1,0 +1,34 @@
+{
+  "mcp_servers": {
+    "local_server": {
+      "type": "subprocess",
+      "command": "fastmcp",
+      "args": ["run", "${PROJECT_ROOT}/server.py"],
+      "cwd": "${PROJECT_ROOT}",
+      "description": "Local MCP server with Wikipedia and IBM tutorial search"
+    },
+    "remote_server_example": {
+      "type": "remote",
+      "url": "http://localhost:8001",
+      "description": "Example remote MCP server",
+      "enabled": false
+    },
+    "subprocess_server_example": {
+      "type": "subprocess",
+      "command": "python",
+      "args": ["other_server.py"],
+      "cwd": ".",
+      "env": {
+        "DEBUG": "true"
+      },
+      "description": "Example subprocess MCP server",
+      "enabled": false
+    }
+  },
+  "settings": {
+    "auto_discover_tools": true,
+    "tool_timeout": 30,
+    "max_concurrent_tools": 5,
+    "default_server": "local_server"
+  }
+}
